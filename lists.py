@@ -17,8 +17,9 @@ def print_list(items):
         9
     """
 
-    print("the wrong thing")
-
+    for item in items: 
+        print(item)
+    
 
 def long_words(words):
     """Return words in input list that longer than 4 characters.
@@ -37,7 +38,13 @@ def long_words(words):
         []
     """
 
-    return ['the wrong thing']
+    sufficient_length = []
+
+    for word in words:
+        if len(word) > 4:
+            sufficient_length.append(word)
+        
+    return sufficient_length
 
 
 def n_long_words(words, n):
@@ -54,7 +61,13 @@ def n_long_words(words, n):
         ['apples', 'bananas']
     """
 
-    return ['the wrong thing']
+    longer_words = []
+
+    for word in words:
+        if len(word) > n:
+            longer_words.append(word)
+
+    return longer_words
 
 
 def smallest_int(numbers):
@@ -74,7 +87,15 @@ def smallest_int(numbers):
         True
     """
 
-    return 100
+    current_smallest = None
+
+    for num in numbers:
+        if current_smallest == None:
+            current_smallest = num
+        elif num < current_smallest:
+            current_smallest = num
+
+    return current_smallest
 
 
 def largest_int(numbers):
@@ -94,7 +115,15 @@ def largest_int(numbers):
         True
     """
 
-    return 0
+    current_largest = None
+
+    for num in numbers:
+        if current_largest == None:
+            current_largest = num
+        elif num > current_largest:
+            current_largest = num
+
+    return current_largest
 
 
 def halvesies(numbers):
@@ -112,7 +141,12 @@ def halvesies(numbers):
         [0.5, 2.5]
     """
 
-    return []
+    num_list = []
+
+    for num in numbers:
+        num_list.append(num/2)
+
+    return num_list
 
 
 def word_lengths(words):
@@ -124,7 +158,12 @@ def word_lengths(words):
         [5, 3, 5, 4]
     """
 
-    return []
+    length = []
+
+    for word in words: 
+        length.append(len(word))
+
+    return length
 
 
 def sum_numbers(numbers):
@@ -143,7 +182,12 @@ def sum_numbers(numbers):
         0
     """
 
-    return None
+    sum = 0
+
+    for num in numbers: 
+        sum += num
+
+    return sum
 
 
 def mult_numbers(numbers):
@@ -166,7 +210,18 @@ def mult_numbers(numbers):
         1
     """
 
-    return None
+    total = None
+
+    if numbers == []:
+        return 1
+
+    for num in numbers: 
+        if total == None:
+            total = num
+        else: 
+            total = total * num
+    
+    return total
 
 
 def join_strings(words):
@@ -185,7 +240,12 @@ def join_strings(words):
         ''
     """
 
-    return "Not the right thing"
+    joined = ''
+
+    for word in words: 
+        joined += word
+
+    return joined
 
 
 def average(numbers):
@@ -207,7 +267,14 @@ def average(numbers):
     a feel free to provide a good solution here.)
     """
 
-    return 0
+    mean = 0
+    counter = 0
+
+    for num in numbers:
+        mean += num
+        counter += 1
+
+    return mean/counter
 
 
 def join_strings_with_comma(words):
@@ -226,8 +293,8 @@ def join_strings_with_comma(words):
         >>> join_strings_with_comma(["Pretzel"])
         'Pretzel'
     """
-
-    return ""
+    
+    return ", ".join(words)
 
 
 def reverse_list(items):
@@ -251,7 +318,7 @@ def reverse_list(items):
         ['apple', 'berry', 'cherry']
     """
 
-    return []
+    return items[::-1]
 
 
 def reverse_list_in_place(items):
@@ -274,7 +341,7 @@ def reverse_list_in_place(items):
         ['I', 'love', 'cookies']
     """
 
-    return []
+    
 
 
 def duplicates(items):
@@ -300,7 +367,17 @@ def duplicates(items):
         ['apple', 'apple', 'berry']
     """
 
-    return []
+    duplicates = []
+
+    seen = []
+
+    for item in items:
+        if item in seen and item not in duplicates:
+            duplicates.append(item)
+        else:
+            seen.append(item)
+    
+    return sorted(duplicates)
 
 
 def find_letter_indices(words, letter):
@@ -328,7 +405,15 @@ def find_letter_indices(words, letter):
     `None`.)
     """
 
-    return []
+    letter_index = []
+
+    for index, word in enumerate(words):
+        if letter in word:
+            letter_index.append(index)
+        else:
+            letter_index.append(None)
+
+    return letter_index
 
 
 #####################################################################
